@@ -1,0 +1,423 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		61811F671BA8D63C006720DB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61811F661BA8D63C006720DB /* AppDelegate.swift */; };
+		61811F691BA8D63C006720DB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61811F681BA8D63C006720DB /* ViewController.swift */; };
+		61811F6B1BA8D63C006720DB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 61811F6A1BA8D63C006720DB /* Images.xcassets */; };
+		61811F6E1BA8D63C006720DB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 61811F6C1BA8D63C006720DB /* Main.storyboard */; };
+		61811F7A1BA8D63C006720DB /* Analisis_LexicoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61811F791BA8D63C006720DB /* Analisis_LexicoTests.swift */; };
+		61811F841BA8D666006720DB /* File.txt in Resources */ = {isa = PBXBuildFile; fileRef = 61811F831BA8D666006720DB /* File.txt */; };
+		61811F881BA98D01006720DB /* SourceCode.algo in Resources */ = {isa = PBXBuildFile; fileRef = 61811F871BA98D01006720DB /* SourceCode.algo */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		61811F741BA8D63C006720DB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 61811F591BA8D63C006720DB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 61811F601BA8D63C006720DB;
+			remoteInfo = "Analisis Lexico";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		61811F611BA8D63C006720DB /* Analisis Lexico.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Analisis Lexico.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		61811F651BA8D63C006720DB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		61811F661BA8D63C006720DB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		61811F681BA8D63C006720DB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		61811F6A1BA8D63C006720DB /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		61811F6D1BA8D63C006720DB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		61811F731BA8D63C006720DB /* Analisis LexicoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Analisis LexicoTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		61811F781BA8D63C006720DB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		61811F791BA8D63C006720DB /* Analisis_LexicoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Analisis_LexicoTests.swift; sourceTree = "<group>"; };
+		61811F831BA8D666006720DB /* File.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = File.txt; sourceTree = "<group>"; };
+		61811F871BA98D01006720DB /* SourceCode.algo */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = SourceCode.algo; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		61811F5E1BA8D63C006720DB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		61811F701BA8D63C006720DB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		61811F581BA8D63B006720DB = {
+			isa = PBXGroup;
+			children = (
+				61811F631BA8D63C006720DB /* Analisis Lexico */,
+				61811F761BA8D63C006720DB /* Analisis LexicoTests */,
+				61811F621BA8D63C006720DB /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		61811F621BA8D63C006720DB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				61811F611BA8D63C006720DB /* Analisis Lexico.app */,
+				61811F731BA8D63C006720DB /* Analisis LexicoTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		61811F631BA8D63C006720DB /* Analisis Lexico */ = {
+			isa = PBXGroup;
+			children = (
+				61811F661BA8D63C006720DB /* AppDelegate.swift */,
+				61811F681BA8D63C006720DB /* ViewController.swift */,
+				61811F831BA8D666006720DB /* File.txt */,
+				61811F871BA98D01006720DB /* SourceCode.algo */,
+				61811F6A1BA8D63C006720DB /* Images.xcassets */,
+				61811F6C1BA8D63C006720DB /* Main.storyboard */,
+				61811F641BA8D63C006720DB /* Supporting Files */,
+			);
+			path = "Analisis Lexico";
+			sourceTree = "<group>";
+		};
+		61811F641BA8D63C006720DB /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				61811F651BA8D63C006720DB /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		61811F761BA8D63C006720DB /* Analisis LexicoTests */ = {
+			isa = PBXGroup;
+			children = (
+				61811F791BA8D63C006720DB /* Analisis_LexicoTests.swift */,
+				61811F771BA8D63C006720DB /* Supporting Files */,
+			);
+			path = "Analisis LexicoTests";
+			sourceTree = "<group>";
+		};
+		61811F771BA8D63C006720DB /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				61811F781BA8D63C006720DB /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		61811F601BA8D63C006720DB /* Analisis Lexico */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 61811F7D1BA8D63C006720DB /* Build configuration list for PBXNativeTarget "Analisis Lexico" */;
+			buildPhases = (
+				61811F5D1BA8D63C006720DB /* Sources */,
+				61811F5E1BA8D63C006720DB /* Frameworks */,
+				61811F5F1BA8D63C006720DB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Analisis Lexico";
+			productName = "Analisis Lexico";
+			productReference = 61811F611BA8D63C006720DB /* Analisis Lexico.app */;
+			productType = "com.apple.product-type.application";
+		};
+		61811F721BA8D63C006720DB /* Analisis LexicoTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 61811F801BA8D63C006720DB /* Build configuration list for PBXNativeTarget "Analisis LexicoTests" */;
+			buildPhases = (
+				61811F6F1BA8D63C006720DB /* Sources */,
+				61811F701BA8D63C006720DB /* Frameworks */,
+				61811F711BA8D63C006720DB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				61811F751BA8D63C006720DB /* PBXTargetDependency */,
+			);
+			name = "Analisis LexicoTests";
+			productName = "Analisis LexicoTests";
+			productReference = 61811F731BA8D63C006720DB /* Analisis LexicoTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		61811F591BA8D63C006720DB /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0640;
+				ORGANIZATIONNAME = guitarrkurt;
+				TargetAttributes = {
+					61811F601BA8D63C006720DB = {
+						CreatedOnToolsVersion = 6.4;
+					};
+					61811F721BA8D63C006720DB = {
+						CreatedOnToolsVersion = 6.4;
+						TestTargetID = 61811F601BA8D63C006720DB;
+					};
+				};
+			};
+			buildConfigurationList = 61811F5C1BA8D63C006720DB /* Build configuration list for PBXProject "Analisis Lexico" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 61811F581BA8D63B006720DB;
+			productRefGroup = 61811F621BA8D63C006720DB /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				61811F601BA8D63C006720DB /* Analisis Lexico */,
+				61811F721BA8D63C006720DB /* Analisis LexicoTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		61811F5F1BA8D63C006720DB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				61811F881BA98D01006720DB /* SourceCode.algo in Resources */,
+				61811F6B1BA8D63C006720DB /* Images.xcassets in Resources */,
+				61811F6E1BA8D63C006720DB /* Main.storyboard in Resources */,
+				61811F841BA8D666006720DB /* File.txt in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		61811F711BA8D63C006720DB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		61811F5D1BA8D63C006720DB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				61811F691BA8D63C006720DB /* ViewController.swift in Sources */,
+				61811F671BA8D63C006720DB /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		61811F6F1BA8D63C006720DB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				61811F7A1BA8D63C006720DB /* Analisis_LexicoTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		61811F751BA8D63C006720DB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 61811F601BA8D63C006720DB /* Analisis Lexico */;
+			targetProxy = 61811F741BA8D63C006720DB /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		61811F6C1BA8D63C006720DB /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				61811F6D1BA8D63C006720DB /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		61811F7B1BA8D63C006720DB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		61811F7C1BA8D63C006720DB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		61811F7E1BA8D63C006720DB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = "Analisis Lexico/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		61811F7F1BA8D63C006720DB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = "Analisis Lexico/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		61811F811BA8D63C006720DB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "Analisis LexicoTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Analisis Lexico.app/Contents/MacOS/Analisis Lexico";
+			};
+			name = Debug;
+		};
+		61811F821BA8D63C006720DB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "Analisis LexicoTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Analisis Lexico.app/Contents/MacOS/Analisis Lexico";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		61811F5C1BA8D63C006720DB /* Build configuration list for PBXProject "Analisis Lexico" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				61811F7B1BA8D63C006720DB /* Debug */,
+				61811F7C1BA8D63C006720DB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		61811F7D1BA8D63C006720DB /* Build configuration list for PBXNativeTarget "Analisis Lexico" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				61811F7E1BA8D63C006720DB /* Debug */,
+				61811F7F1BA8D63C006720DB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		61811F801BA8D63C006720DB /* Build configuration list for PBXNativeTarget "Analisis LexicoTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				61811F811BA8D63C006720DB /* Debug */,
+				61811F821BA8D63C006720DB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 61811F591BA8D63C006720DB /* Project object */;
+}
