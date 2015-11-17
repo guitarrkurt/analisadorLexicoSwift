@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		616CD2FD1BFA43B300569C7C /* Palabras.reservadas in Resources */ = {isa = PBXBuildFile; fileRef = 616CD2FC1BFA43B300569C7C /* Palabras.reservadas */; };
 		61811F671BA8D63C006720DB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61811F661BA8D63C006720DB /* AppDelegate.swift */; };
 		61811F691BA8D63C006720DB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61811F681BA8D63C006720DB /* ViewController.swift */; };
 		61811F6B1BA8D63C006720DB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 61811F6A1BA8D63C006720DB /* Images.xcassets */; };
@@ -27,6 +28,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		616CD2FC1BFA43B300569C7C /* Palabras.reservadas */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Palabras.reservadas; sourceTree = "<group>"; };
 		61811F611BA8D63C006720DB /* Analisis Lexico.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Analisis Lexico.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		61811F651BA8D63C006720DB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		61811F661BA8D63C006720DB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -83,6 +85,7 @@
 				61811F681BA8D63C006720DB /* ViewController.swift */,
 				61811F831BA8D666006720DB /* File.txt */,
 				61811F871BA98D01006720DB /* SourceCode.algo */,
+				616CD2FC1BFA43B300569C7C /* Palabras.reservadas */,
 				61811F6A1BA8D63C006720DB /* Images.xcassets */,
 				61811F6C1BA8D63C006720DB /* Main.storyboard */,
 				61811F641BA8D63C006720DB /* Supporting Files */,
@@ -159,7 +162,9 @@
 		61811F591BA8D63C006720DB /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0640;
+				LastSwiftMigration = 0710;
+				LastSwiftUpdateCheck = 0710;
+				LastUpgradeCheck = 0710;
 				ORGANIZATIONNAME = guitarrkurt;
 				TargetAttributes = {
 					61811F601BA8D63C006720DB = {
@@ -195,6 +200,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				616CD2FD1BFA43B300569C7C /* Palabras.reservadas in Resources */,
 				61811F881BA98D01006720DB /* SourceCode.algo in Resources */,
 				61811F6B1BA8D63C006720DB /* Images.xcassets in Resources */,
 				61811F6E1BA8D63C006720DB /* Main.storyboard in Resources */,
@@ -272,6 +278,7 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -338,6 +345,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = "Analisis Lexico/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "mx.buap.cs.ilab.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -349,6 +357,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = "Analisis Lexico/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "mx.buap.cs.ilab.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -368,6 +377,7 @@
 				);
 				INFOPLIST_FILE = "Analisis LexicoTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "mx.buap.cs.ilab.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Analisis Lexico.app/Contents/MacOS/Analisis Lexico";
 			};
@@ -384,6 +394,7 @@
 				);
 				INFOPLIST_FILE = "Analisis LexicoTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "mx.buap.cs.ilab.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Analisis Lexico.app/Contents/MacOS/Analisis Lexico";
 			};
@@ -408,6 +419,7 @@
 				61811F7F1BA8D63C006720DB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		61811F801BA8D63C006720DB /* Build configuration list for PBXNativeTarget "Analisis LexicoTests" */ = {
 			isa = XCConfigurationList;
@@ -416,6 +428,7 @@
 				61811F821BA8D63C006720DB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

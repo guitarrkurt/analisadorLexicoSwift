@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>28CDD7CA-78D6-4828-A0CC-7495B6E5D57C</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Analisis Lexico</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>BA1C84127FD8F14E4980FB1C376532838DD98E7E</key>
+		<string>https://github.com/guitarrkurt/analisadorLexicoSwift.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Analisis Lexico.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>BA1C84127FD8F14E4980FB1C376532838DD98E7E</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/guitarrkurt/analisadorLexicoSwift.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>BA1C84127FD8F14E4980FB1C376532838DD98E7E</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>BA1C84127FD8F14E4980FB1C376532838DD98E7E</string>
+			<key>IDESourceControlWCCName</key>
+			<string>analisadorLexicoSwift</string>
+		</dict>
+	</array>
+</dict>
+</plist>

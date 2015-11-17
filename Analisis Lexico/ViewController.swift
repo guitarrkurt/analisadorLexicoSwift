@@ -10,189 +10,377 @@ import Cocoa
 
 class ViewController: NSViewController {
     
-    var alfabetoArray: NSArray = NSArray()
+    var estadosFinalesArray: [String] = []
+    var aux: [String] = []
+    var fila: [String] = []
+    var alfabetoArray: [String] = []
     var estadosArray : NSMutableArray = NSMutableArray()
     var ttDic: NSMutableDictionary = NSMutableDictionary()
-    var edoIni: Int = 0
+    var ttPrueba: Dictionary<String, String> = [:]
+    var estado: String! = String()
+    var estadoEsNil: String? = String()
+    var finalesArray: NSMutableArray = NSMutableArray()
+    var key = String()
+    var buffer = String()
+    var bufferID = String()
+    var caracter: Character = " "
+    var token = String()
+    var noEnters = Int()
+    var palabrasReservadasArray: [String] = []
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         //Read Automata
-        var textFromFile = readFileFromBundle("File", typeFile: "txt")
+        print("Leyendo... File.txt")
+        let textFromFile = readFileFromBundle("File", typeFile: "txt")
         //Load Alfabeto, estados, tabla transicion
         if textFromFile != ""{
             loadPropertys(textFromFile)
         } else {
-            println("error al leer textFromFile")
+            print("error al leer textFromFile")
+        }
+        //Leer palabras reservadas
+        print("Leyendo... Palabras.reservadas")
+        let textFromPalabrasReservadas = readFileFromBundle("Palabras", typeFile: "reservadas")
+        if textFromPalabrasReservadas != ""{
+            palabrasReservadasArray = cargarPalabrasReservadas(textFromPalabrasReservadas)
+        }else{
+            print("Error al leer Palabras.reservadas")
         }
         //Read source code file
-        var textFromSourceAlgo = readFileFromBundle("SourceCode", typeFile: "algo")
+        print("Leyendo... SourceCode.algo")
+        var textFromSourceCode = readFileFromBundle("SourceCode", typeFile: "algo")
         //Test source code file
-        if textFromSourceAlgo != "" {
-            test(textFromSourceAlgo)
+        if textFromSourceCode != "" {
+            textFromSourceCode = preprosesamiento(textFromSourceCode)
+            obtenerTokens(textFromSourceCode)
         } else {
-            println("error al leer textFromSourceAlgo")
+            print("Error al leer SourceCode.algo")
         }
 
     }
-    func readFileFromBundle(var nameFile:String, var typeFile: String) -> String{
+    func cargarPalabrasReservadas(textFromPalabrasReservadas: String) -> [String]{
+        return textFromPalabrasReservadas.componentsSeparatedByString("\n")
+    }
+    func preprosesamiento(textFromSourceCode: String) -> String{
+        var i = 0
+        let lenghtSourceCodeAlgo = Array(textFromSourceCode.characters).count
+        var tipo = ""
+        var textoLimpio = ""
+        while(i < lenghtSourceCodeAlgo){
+            caracter = Character("\(Array(textFromSourceCode.characters)[i])")
+            print("caracter: \(caracter)")
+            
+            /*Si el caracter es letra, digito, o esta en el alfabeto, es VALIDO*/
+            /*De lo contrario eliminar espacios, enters y comentarios*/
+            
+            tipo = queTipoEs(caracter)
+            
+            if tipo == "Enter"{
+                noEnters++
+            }
+            else if tipo == "Espacio"{
+                //No hagas nada
+            }
+            else if tipo == "NoExisteAlfabeto"{
+                print("Error en la linea \(noEnters+1):")
+                print("\"\(caracter)\" No pertence al Alfabeto")
+                exit(1)
+                
+            }else{
+                //Concatena para quitar enters y espacios
+                textoLimpio = "\(textoLimpio)\(caracter)"
+                print("textoLimpio: \(textoLimpio)")
+            }
+            
+            ++i
+        }
+        return textoLimpio
+    }
+    func readFileFromBundle(nameFile:String, typeFile: String) -> String{
         //Read File
-        println("...Read File")
+        print("...Read File")
         
         let bundle = NSBundle.mainBundle()
         let path = bundle.pathForResource(nameFile, ofType: typeFile)
-        var error: NSError? = NSError()
-        var textFromFile = String(contentsOfFile: path!, encoding: NSUTF8StringEncoding, error: &error)
+        //var error: NSError? = NSError()
+        var textFromFile: String?
+        do {
+            textFromFile = try String(contentsOfFile: path!, encoding: NSUTF8StringEncoding)
+        } catch {
+            //error = error1
+            textFromFile = nil
+        }
         if textFromFile != nil{
             return textFromFile!
         } else {
-            println("\(error)")
+            //print("\(error)")
             return ""
         }
     }
     func loadPropertys(textFromFile: String) -> Void{
         //Init Tabla Transicion - Propertys
-        println("...Load")
-        println("Text from file:\n\(textFromFile)")
+        print("...Load")
+        print("Text from file:\n\(textFromFile)")
         
         //Get text from archivo
-        var archivo: NSArray = textFromFile.componentsSeparatedByString("\n")
-        println("\narchivo: \(archivo)")
-        var aux: NSArray = NSArray()
+        let archivo: Array = textFromFile.componentsSeparatedByString("\n")
+        print("\narchivo: \(archivo)")
+        //*var aux: NSArray = NSArray()
         
-        //Load Alfabeto
-        alfabetoArray = archivo.objectAtIndex(0).componentsSeparatedByString("\t")
-        println("\nalfabetoArray: \(alfabetoArray)")
+        //Cargamos el Alfabeto, excluyendo la columna "final"
+        alfabetoArray = archivo[0].componentsSeparatedByString("\t")
+        print("alfabetoArray: \(alfabetoArray)")
+        
+        /*for i = 0; i < alfabetoArray.count; ++i{
+        
+        if (alfabetoArray[i] == "final"){
+        alfabetoArray.removeAtIndex(i)
+        }
+        }*/
+        print("\nalfabetoArray: \(alfabetoArray)")
         
         //Load Matrix - get estadosArray
-        var noColums = alfabetoArray.count
-        println("\nnoColums: \(noColums)")
-        var noRows = archivo.count
-        println("noRows: \(noRows)")
+        let noColums = alfabetoArray.count
+        print("\nnoColums: \(noColums)")
+        let noRows = archivo.count
+        print("noRows: \(noRows)")
         for var i = 1; i < noRows; ++i{
-            aux = archivo.objectAtIndex(i).componentsSeparatedByString("\t")
-            estadosArray.addObject(aux.objectAtIndex(0))
+            aux = archivo[i].componentsSeparatedByString("\t")
+            estadosArray.addObject(aux[0])
         }
-        println("\nestadosArray: \(estadosArray)")
+        print("\nestadosArray: \(estadosArray)")
         
         //Load Matrix - build Dictionary
-        var key = ""
+        //Empezamos de 1 exluyendo la columna de los Estados(n) y la fila de Alfabeto(m)
         for var i = 1; i < noRows; ++i{
-            aux = archivo.objectAtIndex(i).componentsSeparatedByString("\t")
+            fila = archivo[i].componentsSeparatedByString("\t")
             
             for var j = 1; j < noColums; ++j{
-                key = "\(estadosArray.objectAtIndex(i-1)),\(alfabetoArray.objectAtIndex(j))"
-                ttDic.setObject(aux.objectAtIndex(j), forKey: key)
-                println("key: [ \(key) ] corresponde: \"\(aux.objectAtIndex(j))\"")
+                
+                key = "\(estadosArray[i-1]),\(alfabetoArray[j])"
+                ttDic.setValue(fila[j], forKey: key)
+                print("key: [ \(key) ] corresponde: \"\(fila[j])\"")
             }
-            println()
+            print("")
         }
-        println("ttDic: \(ttDic)")
+        print("ttDic: \(ttDic)")
+        
+        
+        //Load EstadosFinalesArray
+        for var i = 0; i < estadosArray.count; ++i{
+            key = "\(i),final"
+            if (ttDic.objectForKey(key) as! String) == "si"{
+                estadosFinalesArray.append(estadosArray[i] as! String)
+            }
+        }
+        print("estadosFinalesArray: \(estadosFinalesArray)")
+        
         
     }
-    func test(textFromSourceAlgo: String) -> Void {
-        println("Text source:")
-        println("\(textFromSourceAlgo)")
-        var key = ""
-        var char: Character = " "
+    func obtenerTokens(textFromSourceCode: String) -> Void {
+        print("Texto leido:")
+        print("\(textFromSourceCode)")
         
-        if textFromSourceAlgo.isEmpty {
-            println("Por favor introdusca algo en: \"textFromSourceAlgo\"")
+        if textFromSourceCode.isEmpty {
+            print("Por favor introdusca algo en el archivo: \"textFromSource.algo\"")
         } else {
-            //Crea la llave con el "primer caracter del string"
-            key = "\(edoIni),\(Array(textFromSourceAlgo)[0])"
-            println("Init key: \(key)\n")
+            
+            let lenghtSourceCodeAlgo = Array(textFromSourceCode.characters).count
             var i = 0
-            var tipo = ""
-            while i < Array(textFromSourceAlgo).count{
+            
+            estadoEsNil = obtenerEstadoIni()
+            print("estadoInicial: \(estadoEsNil)")
+            estado = estadoEsNil
+            key = ""
                 
-                char = Character("\(Array(textFromSourceAlgo)[i])")
-                println("char: \(char)")
-                tipo = queEs(char)
+            while i < lenghtSourceCodeAlgo{
+//                print("estado: \(estado)")
                 
+                caracter = Character("\(Array(textFromSourceCode.characters)[i])")
+                print("caracter: \(caracter)")
                 
-                if tipo == "EnterOrSpace"{
-                    println("has algo EnterOrSpace\n")
+                //Puede ser letra
+                if queTipoEs(caracter) == "Letra"
+                {
+                    //Es Letra
+//                    print("Es letra...")
+                    //Key
+                    key = "\(estado),letra"
+//                    print("Key: \(key)")
                 }
-                else if tipo == "Letra"{
-                    println("has algo Letra\n")
+                //Puede ser digito
+                else if queTipoEs(caracter) == "Digito"
+                {   //Es Digito
+//                    print("Es digito...")
+                    //Key
+                    key = "\(estado),digito"
+//                    print("Key: \(key)")
                 }
-                else if tipo == "Digito"{
-                    println("has algo con Digito\n")
+                //Puede ser un simbolo porque ya eliminamos los enter y espacios
+                else{
+                    key = "\(estado!),\(caracter)"
+//                    print("Key: \(key)")
                 }
-                else if tipo == "ExisteAlfabetoOtro"{
-                    println("has algo con ExisteAlfabetoOtro\n")
-                }
-                else if tipo == "NoExisteAlfabeto"{
-                    println("has algo con NoExisteAlfabeto\n")
-                }
-                else {
-                    println("default no debe ocurrit\n")
-                }
+
                 
+                estadoEsNil = ttDic.objectForKey(key) as? String
+//                print("estadoEsNil: \(estadoEsNil)")
                 
-                
+                if estadoEsNil != nil && estadoEsNil != "_"
+                {       //Si consigue un estado inicial valido
+                    
+                    estado = estadoEsNil
+//                    print("estadoFromDictionary: \(estado)")
+                    
+                    if esEstadoFinal(estado!)
+                    {
+                        //Imprime el token con el nombre de token que le corresponde seguido del buffer
+//                        print("El edo \(estado!) es final")
+                        //Obtenemos el token
+                        key = "\(estado!),token"
+//                        print("key: \(key)")
+                        token = ttDic.objectForKey(key) as! String
+                        if token == "ID" && esPalabraReservada(buffer){
+                            print("*\(buffer) Palabra Reservada")
+                        }else{
+                            if buffer == ""{
+                                print("**\(caracter) \(token)")
+                            }else{
+                                if i == retrocesos(estado, index: i){
+                                    //Si no retrocede concatena
+                                    buffer = "\(buffer)\(caracter)"
+                                    print("*\(buffer) \(token)")
+                                }else{
+                                    //Si retrocede no concatenes
+                                    print("*\(buffer) \(token)")
+                                }
+                            }
+                        }
+
+                        //RETROCEDER
+                        i = retrocesos(estado, index: i)
+
+                        //Limpiamos
+                        estado = obtenerEstadoIni()
+//                        print("estado: \(estado!)")
+                        buffer = ""
+//                        print("buffer: \(buffer)")
+                        key = ""
+//                        print("key: \(key)")
+                        caracter = " "
+
+                    }else
+                    {
+                        buffer = "\(buffer)\(caracter)"
+                        print("buffer: \(buffer)")
+                    }
+                }else
+                {
+                    print("El estado es NIL")
+                    print("Verifica que la convinacion KEY exista en el Diccionario: \(ttDic)")
+                    print("Se encontro un nil o un _")
+                    print("Error el caracter -> \(caracter) <- no se encuentra en el alfabeto")
+                    exit(1)
+                }
                 
                 ++i
             }
+            //Fin While
+            print("Termino de leer el archivo")
         }
     }
-    func queEs(char: Character) -> String{
-        var value = Array("\(char)".unicodeScalars)[0].value
+    func esPalabraReservada(buffer: String) -> Bool{
+        for var i = 0; i < palabrasReservadasArray.count; ++i{
+            if buffer == palabrasReservadasArray[i]{
+                return true
+            }
+        }
+        return false
+    }
+    
+    func retrocesos(estado: String, index: Int) -> Int{
+        key = "\(estado),retroceso"
+        estadoEsNil = ttDic.objectForKey(key) as? String
+        
+        if estadoEsNil != nil{
+            return index-Int(estadoEsNil!)!
+            
+        }else{
+            print("Error estado: \(estado) no valido")
+            exit(1)
+        }
+    }
+    func obtenerEstadoIni() -> String?{
+        if estadosArray.count > 0{
+            return estadosArray[0] as? String
+        }else{
+            print("El array estadosArray esta vacio, no se encontro un estado inicial: \(estadosArray)")
+            return nil
+        }
+    }
+    func esEstadoFinal(estado: String) -> Bool{
+        for var i = 0; i < estadosFinalesArray.count; ++i{
+            if estado == estadosFinalesArray[i]{
+                return true
+            }
+        }
+        return false
+    }
+    func caracterEstaAlfabeto(caracter: Character) -> Bool{
+        for var i = 0; i < alfabetoArray.count; ++i{
+            if "\(caracter)" == alfabetoArray[i]{
+                return true
+            }
+        }
+        return false
+    }
+    func queTipoEs(char: Character) -> String{
+        let value = Array("\(char)".unicodeScalars)[0].value
         var tipo = ""
         var band = false
-        println("value: \(value)")
+//        print("value: \(value)")
         if (value >= 65 && value <= 90) || (value >= 97 && value <= 122) {
-            println("Letra")
+//            print("Letra")
             tipo = "Letra"
         }
         else if (value >= 48 && value <= 57){
-            println("Digito\n")
+//            print("Digito\n")
             tipo = "Digito"
         }
         else
         {
-            println("entra, char vale: \(char), value: \(value)")
+//            print("char: \(char), value: \(value)")
             //Comprueba si char esta en el alfabeto
-            
-            if value == 10 || value == 32
+            if value == 10
             {
-                println("EnterOrSpace\n")
-                tipo = "EnterOrSpace"
-            } else
+//                print("Enter\n")
+                tipo = "Enter"
+            }else if value == 32{
+//                print("Espacio\n")
+                tipo = "Espacio"
+            }else
             {
-                
                 for var i = 0; i < alfabetoArray.count; ++i
                 {
-                    if "\(char)" == (alfabetoArray.objectAtIndex(i) as! String)
+                    if "\(char)" == (alfabetoArray[i])
                     {
                         band = true
-                        tipo = "ExisteAlfabetoOtro"
-                        println("ExisteAlfabetoOtro")
+                        tipo = "ExisteAlfabeto"
+//                        print("ExisteAlfabeto")
                         break;
                     }
                 }
                 if band == false{
                     tipo = "NoExisteAlfabeto"
-                    println("No existe en el alfabeto\n")
+//                    print("No existe en el alfabeto\n")
                 }
-
+                
             }
-
+            
         }
-        
         return tipo
-    }
-    
-    
-    
-    
-    
-    
-    override var representedObject: AnyObject? {
-        didSet {
-            // Update the view, if already loaded.
-        }
     }
     
 }
